@@ -16,7 +16,7 @@ class ContactController extends Controller
      */
     public function index(Request $request): View
     {
-        $contacts = Contact::paginate();
+        $contacts = Contact::paginate(10);
 
         return view('contact.index', compact('contacts'))
             ->with('i', ($request->input('page', 1) - 1) * $contacts->perPage());
